@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Manrope:wght@200..800&family=Niconne&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: work sans, sans-serif;
+}
+
+body {
+    background: #f8f9fc;
+    color: #333;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+    background: #F0F1F3;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo styling fix */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 38px;
+    font-weight: 700;
+    gap: 8px;
+    color: black;
+    margin-left: -15px;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Custom font only for logo text */
+.logo span {
+    font-size: 30px;
+    font-weight: 600;
+    color: #000;
+}
+
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    ;
+
+}
+
+.navbar ul li a:hover {
+    color: #A53CFD;
+    background-color: #DADADD;
+    padding: 15px 15px 15px 15px;
+    border-radius: 5px;
+     
+}
+
+.btn {
+    background: #A53CFD;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #650FA0;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #fff, #f1f3ff);
+    padding: 80px 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h3 {
+    color: #777;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.hero-img img {
+    width: 550px;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+/* Stats */
+.stats {
+    background: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 0;
+    margin-top: -40px;
+    border-radius: 10px;
+}
+
+.stat-box h2 {
+    color: #6c63ff;
+    font-size: 28px;
+}
+
+.stat-box p {
+    color: #777;
+    margin-top: 5px;
+}
