@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Picto Portfolio Clone</title>
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Navbar -->
+    <!-- Navbar start-->
     <header class="navbar">
         <div class="container">
             <div class="logo">
@@ -19,55 +22,350 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Process</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Services</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#services">Services</a></li>
                 </ul>
             </nav>
             <a href="#" class="btn">Contact</a>
         </div>
+        <!-- Navbar end-->
+
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Hero section start -->
+    <section id="home" class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <h3>Hello, I'm</h3>
+                <h1>Hello, I'm</h1>
                 <h1>Brooklyn Gilbert</h1>
-                <p>I'm a Freelance UI/UX Designer and Developer based in London, England. I strives to build immersive
+                <p>
+                    I'm a Freelance UI/UX Designer and Developer based in London, England. I strive to build immersive
                     and beautiful web applications through carefully crafted code and user-centric design.
-
-
                 </p>
-                <a href="#" class="btn">Hire Me</a>
+                <a href="#" class="btn1">Say Hello!</a>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>15 Y.</h3>
+                        <p>Experience</p>
+                    </div>
+                    <div class="stat">
+                        <h3>250+</h3>
+                        <p>Projects </p>
+                        <p class="p1">Completed</p>
+                    </div>
+                    <div class="stat">
+                        <h3>58</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
             </div>
             <div class="hero-img">
                 <img src="images/hero-image.png" alt="Profile">
             </div>
         </div>
     </section>
+    <!-- Hero section end -->
 
-    <!-- Stats Section -->
-    <section class="stats">
+    <!-- About section start -->
+    <section id="about" class="about">
         <div class="container">
-            <div class="stat-box">
-                <h2>15 Y.</h2>
-                <p>Experience</p>
-            </div>
-            <div class="stat-box">
-                <h2>250+</h2>
-                <p>Projects</p>
-            </div>
-            <div class="stat-box">
-                <h2>58</h2>
-                <p>Clients</p>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="./images/hero-image.png" alt="About Image">
+                </div>
+
+                <div class="about-text">
+                    <h1>I am Professional User Experience Designer</h1>
+                    <p>
+                        I design and develop services for customers specializing creating stylish, modern websites, web
+                        services and online stores. My passion is to design digital user experiences.
+                    </p>
+                    <p>
+                        I design and develop services for customers specializing creating stylish, modern websites, web
+                        services.
+                    </p>
+                    <a href="#" class="btn1">My Projects</a>
+                    <a href="#" class="btn2">
+                        <i class="fa-solid fa-download"></i> Download CV
+                    </a>
+                </div>
             </div>
         </div>
     </section>
+    <!-- About section end -->
+
+    <!-- Process section start -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <h1>Work Process</h1>
+            <p>Driven by design and powered by code, I create digital interfaces that feel intuitive and perform
+                seamlessly. Every layout, animation, and component is crafted with intention — merging usability with
+                visual clarity,
+            </p>
+            <p class="one-liner">I blend clean design with efficient code to build engaging, user-friendly web
+                experiences that stand out.
+            </p>
+
+            <div class="cards-process">
+                <div class="card-pro">
+                    <i class='bxr  bx-calendar-detail'></i>
+                    <h3>1. Research</h3>
+                    <p>Design meets function in every pixel, blending clarity with intuitive motion.
+                    </p>
+                </div>
+                <div class="card-pro">
+                    <i class='bxr  bx-chart-spline'></i>
+                    <h3>2. Analyze
+                    </h3>
+                    <p>Crafting clean, thoughtful interfaces where form flows seamlessly into function and clarity.</p>
+                </div>
+                <div class="card-pro">
+                    <i class='bxr  bx-pencil'></i>
+                    <h3>3. Design</h3>
+                    <p>I design seamless digital experiences with precision, purpose, and a touch of elegance.</p>
+                </div>
+                <div class="card-pro">
+                    <i class='bxr  bx-laptop'></i>
+                    <h3>4. Launch</h3>
+                    <p>I craft digital products where thoughtful design meets performance-driven, responsive
+                        development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Process section end -->
+
+    <!-- Portfolio Section start -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h1>Portfolio</h1>
+            <p>Here's a selection of my recent work, showcasing my skills in</p>
+            <p>creating user-centric and visually appealing interfaces.</p>
+
+            <div class="card-container">
+
+                <div class="card">
+                    <img src="./images/cards_images/card1.png" alt="Project 1">
+                    <h3>UI-UX DESIGN</h3>
+                    <h2>Product Admin Dashboard</h2>
+                    <p>I focus on crafting smooth, responsive interfaces that balance aesthetic appeal with practical
+                        functionality.</p>
+                    <a href="#" class="btn3">
+                        Case Study
+                        <i class="bxr bx-arrow-right-stroke"></i>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <img src="./images/cards_images/card2.png" alt="Project 1">
+                    <h3>UI-UX DESIGN</h3>
+                    <h2>Product Admin Dashboard</h2>
+                    <p>Designed an intuitive dashboard for product management, emphasizing clarity and user efficiency.
+                    </p>
+                    <a href="#" class="btn3">
+                        Case Study
+                        <i class="bxr bx-arrow-right-stroke"></i>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <img src="./images/cards_images/card3.png" alt="Project 1">
+                    <h3>UI-UX DESIGN</h3>
+                    <h2>Product Admin Dashboard</h2>
+                    <p>Developed a modern admin panel with a focus on usability and seamless navigation for end users
+                        and so on.</p>
+                    <a href="#" class="btn3">
+                        Case Study
+                        <i class="bxr bx-arrow-right-stroke"></i>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <img src="./images/cards_images/card4.png" alt="Project 1">
+                    <h3>UI-UX DESIGN</h3>
+                    <h2>Product Admin Dashboard</h2>
+                    <p>Created a responsive dashboard layout that adapts smoothly across devices and screen sizes and so
+                        on.</p>
+                    <a href="#" class="btn3">
+                        Case Study
+                        <i class="bxr bx-arrow-right-stroke"></i>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <img src="./images/cards_images/card5.png" alt="Project 1">
+                    <h3>UI-UX DESIGN</h3>
+                    <h2>Product Admin Dashboard</h2>
+                    <p>Implemented interactive charts and widgets to visualize product data effectively for
+                        stakeholders.</p>
+                    <a href="#" class="btn3">
+                        Case Study
+                        <i class="bxr bx-arrow-right-stroke"></i>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <img src="./images/cards_images/card6.png" alt="Project 1">
+                    <h3>UI-UX DESIGN</h3>
+                    <h2>Product Admin Dashboard</h2>
+                    <p>Enhanced user experience by streamlining workflows and optimizing interface components and so on.
+                    </p>
+                    <a href="#" class="btn3">
+                        Case Study
+                        <i class="bxr bx-arrow-right-stroke"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <a href="#" class="btn more-projects">More Projects</a>
+        </div>
+    </section>
+    <!-- Portfolio Section end -->
+
+    <!-- Portfolio banner start -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h1>Do you have a Project Idea?<br>Let's discuss your project!</h1>
+            <p>
+                I'm always open to discussing new projects and creative ideas.
+                Let's connect and build something amazing together.
+            </p>
+            <a href="#contact" class="cta-btn">Let's work Together <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+    <!-- Portfolio banner end -->
+
+    <!-- Blog Section start -->
+
+    <section class="blog-section" id="blog">
+        <div class="blog-content">
+            <h1>Blog</h1>
+            <p>Check out my recent blog posts where I share insights on <br> design, development, and the latest industry
+                trends.
+            </p>
+        </div>
+
+        <div class="blog-cards">
+            <div class="blog-card">
+                <img src="./images/cards_images/blog-card1.jpg" alt="Blog 1">
+                <p class="p1">22 Oct, 2020 / 246 Comments</p>
+                <p>Designing Engaging User Interfaces for M...</p>
+            </div>
+
+            <div class="blog-card">
+                <img src="./images/cards_images/blog-card2.jpg" alt="Blog 2">
+                <p class="p1">22 Oct, 2020 / 246 Comments</p>
+                <p>Tips for Effective Dashboard Layouts and...</p>
+            </div>
+
+            <div class="blog-card">
+                <img src="./images/cards_images/blog-card3.jpg" alt="Blog 3">
+                <p class="p1">22 Oct, 2020 / 246 Comments</p>
+                <p>How To Visualize Data For Better Products...</p>
+            </div>
+
+            <div class="blog-card">
+                <img src="./images/cards_images/blog-card4.jpg" alt="Blog 3">
+                <p class="p1">22 Oct, 2020 / 246 Comments</p>
+                <p>Responsive Design:<br>Adapting To All Devic...</p>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section end -->
+
+    <!-- Services Section start -->
+
+    <section class="services" id="services">
+  <div class="container">
+    <div class="services-content">
+      <div class="services-left">
+        <h1>What I do?</h1>
+        <p>
+          I specialize in designing user experiences, crafting engaging interfaces,
+          and building robust web applications that deliver value and usability.
+        </p>
+        <p>
+          My approach combines creativity and technical expertise to deliver
+          solutions that are both visually appealing and highly functional for users.
+        </p>
+        <a href="#contact" class="btn">Say Hello!</a>
+      </div>
+
+      <div class="services-right">
+        <div class="service-card">
+          <h3>User Experience (UX)</h3>
+          <p>
+            I design intuitive and enjoyable experiences by understanding user needs,
+            conducting research, and creating wireframes that enhance usability.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>User Interface (UI)</h3>
+          <p>
+            I craft visually appealing and consistent interfaces, focusing on layout,
+            color, and typography to ensure a seamless and engaging journey.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>Web Development</h3>
+          <p>
+           I build responsive and high-performance web applications using modern technologies, ensuring accessibility, scalability, and maintainability.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- Services Section end -->
+
+<!-- Footer Start -->
+ <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <div class="logo">
+        <img src="./images/logo.png" alt="">
+        <h4>Brooklyn</h4>
+      </div>
+    </div>
+
+    
+    <ul class="footer-nav">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#services">Services</a></li>
+   <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    
+    <div class="footer-right">
+      <p>Copyright © 2025 Picto.</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Developed with <span class="heart"><i class="fa-solid fa-heart"></i></span> by <strong>Hassan Javed</strong></p>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <a href="#" class="scroll-top"><i class="fa-solid fa-angle-up"></i></a>
+</footer>
+<!-- Footer End -->
 
 </body>
 
 </html>
+
+
+
+
+
+<!-- Designed & Developed By Hassan Javed -->
