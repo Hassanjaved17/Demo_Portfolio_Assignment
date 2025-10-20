@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Manrope:wght@200..800&family=Niconne&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+    --primary-color: #A53CFD;
+    --primary-light: #9929FB;
+    --primary-dark: #650FA0;
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -43,7 +52,7 @@ html {
     font-size: 38px;
     font-weight: 700;
     gap: 8px;
-    color: black;
+    color: var(--black-color);
     margin-left: -15px;
     cursor: pointer;
 }
@@ -59,7 +68,7 @@ html {
 .logo span {
     font-size: 30px;
     font-weight: 600;
-    color: #000;
+    color: var(--black-color);
 }
 
 
@@ -71,7 +80,7 @@ html {
 
 .navbar ul li a {
     text-decoration: none;
-    color: black;
+    color: var(--black-color);
     font-size: 15px;
     font-weight: 500;
     transition: all 0.3s ease;
@@ -81,13 +90,13 @@ html {
 }
 
 .navbar ul li a:hover {
-    color: #A53CFD;
+    color: var(--primary-color);
     background-color: #DADADD;
 }
 
 .btn {
-    background: #A53CFD;
-    color: #fff;
+    background: var(--primary-color);
+    color: var(--white-color);
     padding: 10px 22px;
     border-radius: 5px;
     text-decoration: none;
@@ -98,13 +107,14 @@ html {
 }
 
 .btn:hover {
-    background: #650FA0;
+    background: var(--primary-dark);
 }
+
 /* Navbar end */
 
 /* Hero Section start */
 .hero {
-    background: linear-gradient(to right, #fff, #F8DBFC);
+    background: linear-gradient(to right, var(--white-color), #F8DBFC);
     padding: 80px 0;
 }
 
@@ -123,7 +133,7 @@ html {
 
 .hero-text h1 {
     font-size: 48px;
-    color: #333;
+    color: var(--black-color);
     margin-bottom: 20px;
     line-height: 0.9;
 }
@@ -137,12 +147,12 @@ html {
 .hero-img img {
     width: 550px;
     border-radius: 15px;
-    background-color: #fff;
+    background-color: var(--white-color);
 }
 
 .hero-text .btn1 {
-    background: #A53CFD;
-    color: #fff;
+    background: var(--primary-color);
+    color: var(--white-color);
     padding: 15px 25px;
     border-radius: 5px;
     text-decoration: none;
@@ -153,7 +163,7 @@ html {
 }
 
 .hero-text .btn1:hover {
-    background: #650FA0;
+    background: var(--primary-dark);
 }
 
 .hero-stats {
@@ -171,7 +181,7 @@ html {
 
 
 .stat h3 {
-    color: #A53CFD;
+    color: var(--primary-color);
     font-size: 26px;
     margin-bottom: 8px;
     line-height: 1.2;
@@ -191,6 +201,7 @@ html {
     margin-top: 2px;
     font-size: 15px;
 }
+
 /* Hero Section end */
 
 
@@ -198,7 +209,7 @@ html {
 .about {
     padding: 90px 0;
     margin-top: 100px;
-    background: #fff;
+    background: var(--white-color);
 }
 
 .about-content {
@@ -226,7 +237,7 @@ html {
 }
 
 .about-text h1 {
-    color: #111;
+    color: var(--black-color);
     font-size: 40px;
     font-weight: 600;
     margin-bottom: 8px;
@@ -246,8 +257,8 @@ html {
 .about-text .btn1 {
     display: inline-block;
     margin-top: 40px;
-    background: #9929FB;
-    color: #fff;
+    background: var(--primary-light);
+    color: var(--white-color);
     padding: 15px 22px;
     border-radius: 5px;
     text-decoration: none;
@@ -258,7 +269,7 @@ html {
 }
 
 .about-text .btn1:hover {
-    background: #650FA0;
+    background: var(--primary-dark);
 }
 
 .about-text .btn2 {
@@ -267,7 +278,7 @@ html {
     gap: 8px;
     margin-left: 12px;
     background: transparent;
-    color: #111;
+    color: var(--black-color);
     border: 1px solid lightgrey;
     text-decoration: none;
     padding: 15px 22px;
@@ -278,8 +289,8 @@ html {
 }
 
 .about-text .btn2:hover {
-    color: #9929FB;
-    border-color: #9929FB;
+    color: var(--primary-light);
+    border-color: var(--primary-light);
 }
 
 
@@ -306,6 +317,7 @@ html {
         font-size: 20px;
     }
 }
+
 /* About Section end*/
 
 /* Process Section Start */
@@ -326,7 +338,7 @@ html {
     font-size: 50px;
     font-weight: 600;
     margin-bottom: 20px;
-    color: #18181B;
+    color: var(--black-color);
 }
 
 .process-section p {
@@ -351,7 +363,7 @@ html {
 
 
 .card-pro {
-    background-color: #fff;
+    background-color: var(--white-color);
     padding: 40px 55px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -364,7 +376,7 @@ html {
 
 .card-pro i {
     font-size: 40px;
-    color: #A43BFD;
+    color: var(--primary-color);
     padding: 20px 20px;
     margin-bottom: 20px;
     background: #F0F1F3;
@@ -372,15 +384,15 @@ html {
 }
 
 .card-pro i:hover {
-    background: #9929FB;
-    color: #fff;
+    background: var(--primary-light);
+    color: var(--white-color);
 }
 
 
 
 .card-pro h3 {
     font-size: 1.4em;
-    color: #222;
+    color: var(--black-color);
     margin-bottom: 12px;
 }
 
@@ -410,7 +422,7 @@ html {
 .portfolio-section h1 {
     font-size: 50px;
     margin-bottom: 20px;
-    color: #18181B;
+    color: var(--black-color);
 }
 
 .portfolio-section p {
@@ -429,7 +441,7 @@ html {
 
 
 .card {
-    background-color: #fff;
+    background-color: var(--white-color);
     padding: 30px 25px;
     border-radius: 10px;
     border: 1px solid #E0E0E0;
@@ -457,7 +469,7 @@ html {
 .card h2 {
     font-size: 1.2em;
     font-weight: 650;
-    color: #18181B;
+    color: var(--black-color);
     margin-bottom: 15px;
 }
 
@@ -475,7 +487,7 @@ html {
     padding: 15px 22px;
     background-color: transparent;
     border: 1px solid lightgrey;
-    color: #18181B;
+    color: var(--black-color);
     text-decoration: none;
     border-radius: 5px;
     font-weight: 600;
@@ -489,8 +501,8 @@ html {
 }
 
 .card .btn3:hover {
-    color: #9929FB;
-    border-color: #9929FB;
+    color: var(--primary-light);
+    border-color: var(--primary-light);
 }
 
 .card .btn3:hover i {
@@ -502,8 +514,8 @@ html {
 .more-projects {
     display: inline-block;
     padding: 12px 20px;
-    background-color: #9929FB;
-    color: #fff;
+    background-color: var(--primary-light);
+    color: var(--white-color);
     text-decoration: none;
     border-radius: 5px;
     font-size: 15px;
@@ -514,7 +526,7 @@ html {
 }
 
 .more-projects:hover {
-    background-color: #650FA0;
+    background-color: var(--primary-dark);
 }
 
 
@@ -544,7 +556,7 @@ html {
 /* CTA Section */
 .cta-section {
     background-color: #101828;
-    color: #fff;
+    color: var(--white-color);
     text-align: center;
     padding: 100px 20px;
 }
@@ -567,8 +579,8 @@ html {
 
 .cta-btn {
     display: inline-block;
-    background: #A53CFD;
-    color: #fff;
+    background: var(--primary-color);
+    color: var(--white-color);
     text-decoration: none;
     padding: 14px 28px;
     border-radius: 5px;
@@ -578,7 +590,7 @@ html {
 }
 
 .cta-btn:hover {
-    background: #650FA0;
+    background: var(--primary-dark);
 }
 
 
@@ -588,7 +600,7 @@ html {
 
 /* Portfolio banner end */
 
-  /* Portfolio Section end */
+/* Portfolio Section end */
 
 /* Blog Section Start */
 
@@ -625,7 +637,7 @@ html {
 
 
 .blog-card {
-    background: #fff;
+    background: var(--white-color);
     border-radius: 10px;
     overflow: hidden;
     text-align: left;
@@ -694,7 +706,7 @@ html {
 .services-left h1 {
     font-size: 3.5rem;
     font-weight: 600;
-    color: #111;
+    color: var(--black-color);
     margin-bottom: 20px;
 }
 
@@ -707,8 +719,8 @@ html {
 
 .services-left .btn {
     display: inline-block;
-    background-color: #9929FB;
-    color: #fff;
+    background-color: var(--primary-light);
+    color: var(--white-color);
     padding: 14px 28px;
     border-radius: 6px;
     text-decoration: none;
@@ -719,7 +731,7 @@ html {
 }
 
 .services-left .btn:hover {
-    background-color: #650FA0;
+    background-color: var(--primary-dark);
 }
 
 
@@ -731,7 +743,7 @@ html {
 }
 
 .service-card {
-    background: #fff;
+    background: var(--white-color);
     border-radius: 10px;
     padding: 30px;
     transition: box-shadow 0.25s ease;
@@ -739,13 +751,13 @@ html {
 
 .service-card:hover {
 
-    box-shadow: inset 5px 0 0 #9929FB, 0 10px 45px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: inset 5px 0 0 var(--primary-light), 0 10px 45px 5px rgba(0, 0, 0, 0.25);
 }
 
 .service-card h3 {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #111;
+    color: var(--black-color);
     margin-bottom: 10px;
 }
 
@@ -767,16 +779,16 @@ html {
         flex: 1 1 100%;
     }
 }
+
 /* Services Section end */
 
 /* Footer start*/
 .footer {
     background: #2A3749;
-    color: #fff;
+    color: var(--white-color);
     padding: 90px 0 60px;
     position: relative;
     text-align: center;
-    font-family: "Poppins", sans-serif;
 }
 
 
@@ -808,7 +820,7 @@ html {
 .logo h4 {
     font-size: 35px;
     font-weight: 600;
-    color: #fff;
+    color: var(--white-color);
 }
 
 
@@ -827,7 +839,7 @@ html {
 }
 
 .footer-nav li a:hover {
-    color: #9929FB;
+    color: var(--primary-light);
 }
 
 
@@ -843,9 +855,16 @@ html {
     font-size: 15px;
 }
 
-.footer-bottom strong {
-    color: #fff;
+.footer-bottom .portfolio-link strong {
+    color: var(--white-color);
     text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom .portfolio-link strong:hover {
+    color: var(--primary-light);
+    /* or any color you like on hover */
 }
 
 .footer-bottom .heart {
@@ -884,9 +903,9 @@ html {
     right: 25px;
     width: 50px;
     height: 50px;
-    background: #9929FB;
+    background: var(--primary-light);
     border-radius: 50%;
-    color: #fff;
+    color: var(--white-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -896,7 +915,7 @@ html {
 }
 
 .scroll-top:hover {
-    background: #7a1fd0;
+    background: var(--primary-dark);
 }
 
 
