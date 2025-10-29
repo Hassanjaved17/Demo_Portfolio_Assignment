@@ -826,20 +826,39 @@ html {
 
 .footer-nav {
     list-style: none;
+    text-decoration: none;
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
 }
 
 .footer-nav li a {
+    position: relative; 
     color: #D0D0D1;
     text-decoration: none;
-    transition: color 0.2s ease;
     font-weight: 500;
+    transition: color 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+/* Underline effect */
+.footer-nav li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background: linear-gradient(90deg, var(--primary-color), #a78bfa);
+    transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Hover state */
 .footer-nav li a:hover {
-    color: var(--primary-light);
+    color: var(--primary-color);
+}
+
+.footer-nav li a:hover::after {
+    width: 100%;
 }
 
 
@@ -848,24 +867,46 @@ html {
     font-size: 14px;
 }
 
-
 .footer-bottom {
     margin-top: 20px;
     color: #D0D0D1;
     font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-bottom .portfolio-link {
+    text-decoration: none;
 }
 
 .footer-bottom .portfolio-link strong {
     color: var(--white-color);
-    text-decoration: underline;
+    position: relative;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
-.footer-bottom .portfolio-link strong:hover {
-    color: var(--primary-light);
-    /* or any color you like on hover */
+.footer-bottom .portfolio-link strong::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: width 0.3s ease;
 }
+
+.footer-bottom .portfolio-link strong:hover {
+    color: var(--primary-light); 
+}
+
+.footer-bottom .portfolio-link strong:hover::after {
+    width: 100%;
+}
+
+
 
 .footer-bottom .heart {
     color: #E81224;
