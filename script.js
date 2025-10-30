@@ -1,10 +1,28 @@
-// Developed by Hassan Javed
+/* 
+====================================================
+        Developed & Animated by Hassan Javed
+====================================================
+About the Animation:
+This project uses GSAP (GreenSock Animation Platform)
+to enhance user experience with smooth, scroll-based
+and hover-triggered animations.
+====================================================
+
+====================================================
+                Note For Sir Ibrahim:
+====================================================
+I have learned some basics of JavaScript earlier, so I was able to explore GSAP on my own
+to enhance my project’s design and animation quality. Even though JavaScript is not yet
+part of our current module, I used it just to make my portfolio more interactive and creative.
+Hope you like the extra effort! 
+====================================================
+*/
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 // ==========================================
-// NAVBAR ANIMATION
+//            NAVBAR ANIMATION
 // ==========================================
 gsap.from(".navbar", {
   y: -100,
@@ -14,7 +32,7 @@ gsap.from(".navbar", {
 });
 
 // ==========================================
-// HERO SECTION ANIMATIONS
+//          HERO SECTION ANIMATIONS
 // ==========================================
 const heroTimeline = gsap.timeline({ delay: 0.3 });
 
@@ -61,7 +79,7 @@ gsap.from(".hero-img img", {
 });
 
 // ==========================================
-// ABOUT SECTION ANIMATIONS
+//         ABOUT SECTION ANIMATIONS
 // ==========================================
 gsap.from(".about-img img", {
   scrollTrigger: {
@@ -116,7 +134,7 @@ gsap.from(".about-text .btn1, .about-text .btn2", {
 });
 
 // ==========================================
-// PROCESS SECTION ANIMATIONS
+//        PROCESS SECTION ANIMATIONS
 // ==========================================
 gsap.from(".process-section h1", {
   scrollTrigger: {
@@ -159,7 +177,7 @@ gsap.from(".card-pro", {
 });
 
 // ==========================================
-// PORTFOLIO SECTION ANIMATIONS
+//        PORTFOLIO SECTION ANIMATIONS
 // ==========================================
 gsap.from(".portfolio-section h1", {
   scrollTrigger: {
@@ -214,7 +232,7 @@ gsap.from(".more-projects", {
 });
 
 // ==========================================
-// CTA BANNER ANIMATION
+//            CTA BANNER ANIMATION
 // ==========================================
 gsap.from(".cta-section h1", {
   scrollTrigger: {
@@ -255,7 +273,7 @@ gsap.from(".cta-btn", {
 });
 
 // ==========================================
-// BLOG SECTION ANIMATIONS
+//          BLOG SECTION ANIMATIONS
 // ==========================================
 gsap.from(".blog-content h1", {
   scrollTrigger: {
@@ -297,7 +315,7 @@ gsap.from(".blog-card", {
 });
 
 // ==========================================
-// SERVICES SECTION ANIMATIONS
+//        SERVICES SECTION ANIMATIONS
 // ==========================================
 gsap.from(".services-left h1", {
   scrollTrigger: {
@@ -353,7 +371,7 @@ gsap.from(".service-card", {
 });
 
 // ==========================================
-// FOOTER ANIMATIONS
+//            FOOTER ANIMATIONS
 // ==========================================
 gsap.from(".footer .logo", {
   scrollTrigger: {
@@ -408,7 +426,7 @@ gsap.from(".footer-bottom", {
 });
 
 // ==========================================
-// SCROLL TO TOP BUTTON ANIMATION
+//      SCROLL TO TOP BUTTON ANIMATION
 // ==========================================
 gsap.from(".scroll-top", {
   scale: 0,
@@ -418,7 +436,6 @@ gsap.from(".scroll-top", {
   delay: 2
 });
 
-// ==========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -452,7 +469,7 @@ window.addEventListener('scroll', () => {
 
 
 // ==========================================
-// HOVER ANIMATIONS (Optional Enhancement)
+//            HOVER ANIMATIONS 
 // ==========================================
 
 // Card hover effects
@@ -494,16 +511,3 @@ document.querySelectorAll('.btn, .btn1, .btn2, .btn3, .cta-btn').forEach(btn => 
 });
 
 
-/* 
-====================================================
-Developed & Animated by Hassan Javed
-----------------------------------------------------
-This project uses GSAP (GreenSock Animation Platform)
-to enhance user experience with smooth, scroll-based
-and hover-triggered animations.
-
-Note Sir Ibrahim:
-I already knew JavaScript and GSAP before this course,
-so I applied them here to make my project more dynamic.
-====================================================
-*/
