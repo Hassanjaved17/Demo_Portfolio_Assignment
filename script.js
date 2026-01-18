@@ -468,7 +468,7 @@ document.querySelectorAll('.card, .blog-card, .service-card, .card-pro').forEach
       ease: "power2.out"
     });
   });
-  
+
   card.addEventListener('mouseleave', () => {
     gsap.to(card, {
       y: 0,
@@ -487,7 +487,7 @@ document.querySelectorAll('.btn, .btn1, .btn2, .btn3, .cta-btn').forEach(btn => 
       ease: "power2.out"
     });
   });
-  
+
   btn.addEventListener('mouseleave', () => {
     gsap.to(btn, {
       scale: 1,
@@ -498,26 +498,26 @@ document.querySelectorAll('.btn, .btn1, .btn2, .btn3, .cta-btn').forEach(btn => 
 });
 
 new Swiper(".clientsSwiper", {
-    loop: true,
-    speed: 3000,
-    autoplay: {
-        delay: 0,
-        disableOnInteraction: false,
-    },
-    slidesPerView: 5,
-    spaceBetween: 10,
+  loop: true,
+  speed: 3000,
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+  },
+  slidesPerView: 5,
+  spaceBetween: 10,
 
-    breakpoints: {
-        320: {
-            slidesPerView: 2,
-        },
-        640: {
-            slidesPerView: 3,
-        },
-        1024: {
-            slidesPerView: 5,
-        },
+  breakpoints: {
+    320: {
+      slidesPerView: 2,
     },
+    640: {
+      slidesPerView: 3,
+    },
+    1024: {
+      slidesPerView: 5,
+    },
+  },
 });
 
 
@@ -525,18 +525,18 @@ new Swiper(".clientsSwiper", {
 
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', function(e) {
+contactForm.addEventListener('submit', function (e) {
   e.preventDefault();
-  
+
   // Get form values
   const formData = new FormData(contactForm);
   const data = Object.fromEntries(formData);
-  
+
   console.log('Form submitted:', data);
-  
+
   // Show success message
   alert('Thank you! Your message has been sent.');
-  
+
   // Reset form
   contactForm.reset();
 });
@@ -545,11 +545,11 @@ contactForm.addEventListener('submit', function(e) {
 const inputs = document.querySelectorAll('input, textarea');
 
 inputs.forEach(input => {
-  input.addEventListener('focus', function() {
+  input.addEventListener('focus', function () {
     this.parentElement.classList.add('focused');
   });
-  
-  input.addEventListener('blur', function() {
+
+  input.addEventListener('blur', function () {
     this.parentElement.classList.remove('focused');
   });
 });
@@ -564,21 +564,21 @@ const navLinks = document.querySelectorAll('.navbar nav ul li a');
 // Function to update active link
 function updateActiveLink() {
   let current = '';
-  
+
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.clientHeight;
-    
+
     // Check if section is in viewport (with offset for navbar height)
     if (window.scrollY >= sectionTop - 150) {
       current = section.getAttribute('id');
     }
   });
-  
+
   // Remove active class from all links
   navLinks.forEach(link => {
     link.classList.remove('active');
-    
+
     // Add active class to current section's link
     if (link.getAttribute('href').substring(1) === current) {
       link.classList.add('active');
@@ -593,10 +593,10 @@ window.addEventListener('scroll', updateActiveLink);
 navLinks.forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
-    
+
     const targetId = link.getAttribute('href').substring(1);
     const targetSection = document.getElementById(targetId);
-    
+
     if (targetSection) {
       targetSection.scrollIntoView({
         behavior: 'smooth',
@@ -626,19 +626,19 @@ updateActiveLink();
 // ==========================================
 
 const testimonialSwiper = new Swiper('.testimonialSwiper', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    speed: 800,
-    effect: 'slide',
+  slidesPerView: 1,
+  spaceBetween: 30,
+  loop: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  speed: 800,
+  effect: 'slide',
 });
 
 
@@ -646,6 +646,6 @@ const hamburger = document.getElementById("hamburger");
 const navMenu = document.querySelector(".navbar ul");
 
 hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
 });
