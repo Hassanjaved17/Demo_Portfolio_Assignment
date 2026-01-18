@@ -2,21 +2,8 @@
 ====================================================
         Developed & Animated by Hassan Javed
 ====================================================
-About the Animation:
-This project uses GSAP (GreenSock Animation Platform)
-to enhance user experience with smooth, scroll-based
-and hover-triggered animations.
-====================================================
-
-====================================================
-                Note For Sir Ibrahim:
-====================================================
-I have learned some basics of JavaScript earlier, so I was able to explore GSAP on my own
-to enhance my project’s design and animation quality. Even though JavaScript is not yet
-part of our current module, I used it just to make my portfolio more interactive and creative.
-Hope you like the extra effort! 
-====================================================
 */
+
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -425,9 +412,9 @@ gsap.from(".footer-bottom", {
   delay: 0.5
 });
 
-// ==========================================
-//      SCROLL TO TOP BUTTON ANIMATION
-// ==========================================
+// // // ==========================================
+// // //      SCROLL TO TOP BUTTON ANIMATION
+// // // ==========================================
 gsap.from(".scroll-top", {
   scale: 0,
   opacity: 0,
@@ -468,11 +455,11 @@ window.addEventListener('scroll', () => {
 });
 
 
-// ==========================================
-//            HOVER ANIMATIONS 
-// ==========================================
+// // // ==========================================
+// // //            HOVER ANIMATIONS 
+// // // ==========================================
 
-// Card hover effects
+// // // Card hover effects
 document.querySelectorAll('.card, .blog-card, .service-card, .card-pro').forEach(card => {
   card.addEventListener('mouseenter', () => {
     gsap.to(card, {
@@ -491,7 +478,7 @@ document.querySelectorAll('.card, .blog-card, .service-card, .card-pro').forEach
   });
 });
 
-// Button hover pulse effect
+// // // Button hover pulse effect
 document.querySelectorAll('.btn, .btn1, .btn2, .btn3, .cta-btn').forEach(btn => {
   btn.addEventListener('mouseenter', () => {
     gsap.to(btn, {
@@ -510,4 +497,155 @@ document.querySelectorAll('.btn, .btn1, .btn2, .btn3, .cta-btn').forEach(btn => 
   });
 });
 
+new Swiper(".clientsSwiper", {
+    loop: true,
+    speed: 3000,
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+    },
+    slidesPerView: 5,
+    spaceBetween: 10,
 
+    breakpoints: {
+        320: {
+            slidesPerView: 2,
+        },
+        640: {
+            slidesPerView: 3,
+        },
+        1024: {
+            slidesPerView: 5,
+        },
+    },
+});
+
+
+
+
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Get form values
+  const formData = new FormData(contactForm);
+  const data = Object.fromEntries(formData);
+  
+  console.log('Form submitted:', data);
+  
+  // Show success message
+  alert('Thank you! Your message has been sent.');
+  
+  // Reset form
+  contactForm.reset();
+});
+
+// Add animation on input focus
+const inputs = document.querySelectorAll('input, textarea');
+
+inputs.forEach(input => {
+  input.addEventListener('focus', function() {
+    this.parentElement.classList.add('focused');
+  });
+  
+  input.addEventListener('blur', function() {
+    this.parentElement.classList.remove('focused');
+  });
+});
+
+
+// ======SCROLL SPY EFFECT - Navbar Active Link======
+
+// Get all sections and nav links
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.navbar nav ul li a');
+
+// Function to update active link
+function updateActiveLink() {
+  let current = '';
+  
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    
+    // Check if section is in viewport (with offset for navbar height)
+    if (window.scrollY >= sectionTop - 150) {
+      current = section.getAttribute('id');
+    }
+  });
+  
+  // Remove active class from all links
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    
+    // Add active class to current section's link
+    if (link.getAttribute('href').substring(1) === current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+// Listen to scroll event
+window.addEventListener('scroll', updateActiveLink);
+
+// Smooth scroll on nav link click
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    const targetId = link.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
+    
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Smooth scroll for Contact button in navbar
+const contactBtn = document.querySelector('.navbar .btn');
+contactBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('contact').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+});
+
+// Call once on page load to set initial active state
+updateActiveLink();
+
+
+
+// ==========================================
+// TESTIMONIAL SWIPER SLIDER
+// ==========================================
+
+const testimonialSwiper = new Swiper('.testimonialSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    speed: 800,
+    effect: 'slide',
+});
+
+
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.querySelector(".navbar ul");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+});

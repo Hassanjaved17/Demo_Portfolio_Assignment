@@ -7,8 +7,8 @@
     <title>Picto Portfolio Clone</title>
     <link rel="icon" type="image/png" href="./images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
-
+    <!-- Swiper Slider Cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -32,7 +32,11 @@
                     <li><a href="#services">Services</a></li>
                 </ul>
             </nav>
-            <a href="#" class="btn">Contact</a>
+            <a href="#contact" class="btn">Contact</a>
+            <!-- Hamburger Icon -->
+            <div class="hamburger" id="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </div>
         <!-- Navbar end-->
 
@@ -115,24 +119,23 @@
 
             <div class="cards-process">
                 <div class="card-pro">
-                    <i class='bxr  bx-calendar-detail'></i>
+                    <i class="fa-slab-press fa-regular fa-calendar"></i>
                     <h3>1. Research</h3>
                     <p>Design meets function in every pixel, blending clarity with intuitive motion.
                     </p>
                 </div>
                 <div class="card-pro">
-                    <i class='bxr  bx-chart-spline'></i>
-                    <h3>2. Analyze
-                    </h3>
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>2. Analyze</h3>
                     <p>Crafting clean, thoughtful interfaces where form flows seamlessly into function and clarity.</p>
                 </div>
                 <div class="card-pro">
-                    <i class='bxr  bx-pencil'></i>
+                    <i class="fa-solid fa-pencil"></i>
                     <h3>3. Design</h3>
                     <p>I design seamless digital experiences with precision, purpose, and a touch of elegance.</p>
                 </div>
                 <div class="card-pro">
-                    <i class='bxr  bx-laptop'></i>
+                    <i class="fa-solid fa-laptop"></i>
                     <h3>4. Launch</h3>
                     <p>I craft digital products where thoughtful design meets performance-driven, responsive
                         development.</p>
@@ -159,7 +162,7 @@
                         functionality.</p>
                     <a href="#" class="btn3">
                         Case Study
-                        <i class="bxr bx-arrow-right-stroke"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
@@ -171,7 +174,7 @@
                     </p>
                     <a href="#" class="btn3">
                         Case Study
-                        <i class="bxr bx-arrow-right-stroke"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
@@ -183,7 +186,7 @@
                         and so on.</p>
                     <a href="#" class="btn3">
                         Case Study
-                        <i class="bxr bx-arrow-right-stroke"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
@@ -195,7 +198,8 @@
                         on.</p>
                     <a href="#" class="btn3">
                         Case Study
-                        <i class="bxr bx-arrow-right-stroke"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
+
                     </a>
                 </div>
 
@@ -207,7 +211,7 @@
                         stakeholders.</p>
                     <a href="#" class="btn3">
                         Case Study
-                        <i class="bxr bx-arrow-right-stroke"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
@@ -219,7 +223,7 @@
                     </p>
                     <a href="#" class="btn3">
                         Case Study
-                        <i class="bxr bx-arrow-right-stroke"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
 
@@ -248,10 +252,10 @@
     <section class="blog-section" id="blog">
         <div class="blog-content">
             <h1>Blog</h1>
-            <p>Check out my recent blog posts where I share insights on <br> design, development, and the latest
+            <2wp>Check out my recent blog posts where I share insights on <br> design, development, and the latest
                 industry
                 trends.
-            </p>
+            </2wp>
         </div>
 
         <div class="blog-cards">
@@ -328,6 +332,180 @@
     </section>
     <!-- Services Section end -->
 
+    <!-- Clients Section Start -->
+    <section class="clients" id="clients">
+        <div class="sec-text">
+            <h1>Happy Clients</h1>
+            <p>I've had the pleasure of working with a diverse range of <br> companies, from startups to established
+                brands.
+            </p>
+        </div>
+
+        <div class="swiper clientsSwiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <img src="./images/logos/linkedin-logo.webp" alt="LinkedIn">
+                </div>
+
+
+                <div class="swiper-slide">
+                    <img src="./images/logos/google-logo.jpeg" alt="Google">
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="./images/logos/amazon-logo.png" alt="Amazon">
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="./images/logos/medium-logo.png" alt="Medium">
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="./images/logos/spotify-logo.png" alt="Spotify">
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="./images/logos/dribbble-logo.png" alt="Dribbble">
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Clients Section End -->
+
+    <!-- Testimonials Section Start -->
+    <section class="testimonial-section" id="testimonial">
+        <div class="container">
+            <h1>Testimonial</h1>
+            <p class="subtitle">Working with this team was a fantastic experience. Their attention to detail and
+                commitment to quality exceeded our expectations.</p>
+
+            <div class="swiper testimonialSwiper">
+                <div class="swiper-wrapper">
+
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <p class="quote">"From the initial consultation to the final delivery, every step was
+                                handled professionally. The end result was a product that not only met our needs but
+                                also impressed our stakeholders. Highly recommended!"</p>
+                            <h3>Esther Howard</h3>
+                            <p class="position">Managing Director, ABC Company</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <p class="quote">"Outstanding service and exceptional quality! The team went above and
+                                beyond to deliver results that exceeded our expectations. Would definitely work with
+                                them again."</p>
+                            <h3>John Anderson</h3>
+                            <p class="position">CEO, Tech Solutions</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <p class="quote">"Professional, creative, and reliable. They transformed our vision into
+                                reality with impressive attention to detail. Highly satisfied with the entire process!"
+                            </p>
+                            <h3>Sarah Johnson</h3>
+                            <p class="position">Product Manager, Digital Ventures</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Pagination dots -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section End -->
+
+    <!-- Contact Section Start -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Left Side -->
+                <div class="contact-left">
+                    <h1>Let's discuss your Project</h1>
+                    <p>I'm available for freelance work. Drop me a line if you have a project you think I'd be a good
+                        fit for.</p>
+
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="label">Address:</p>
+                                <p class="value">New Mexico, 31134</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="label">My Email:</p>
+                                <p class="value">mymail@mail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="icon-box">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="label">Call Me Now:</p>
+                                <p class="value">00-123 00000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+
+                <!-- Right Side -->
+                <div class="contact-right">
+                    <p class="form-subtitle">I'm always open to discussing product design work or partnership
+                        opportunities.</p>
+
+                    <form id="contactForm">
+                        <input type="text" name="name" placeholder="Name*" required>
+                        <input type="email" name="email" placeholder="Email*" required>
+                        <input type="text" name="location" placeholder="Location*" required>
+
+                        <div class="row-inputs">
+                            <input type="text" placeholder="Budget*" required>
+                            <input type="text" placeholder="Subject*" required>
+                        </div>
+
+
+                        <input type="text" placeholder="Message*" required>
+                        <button type="submit" class="submit-btn">Submit <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
     <!-- Footer Start -->
     <footer class="footer">
         <div class="footer-container">
@@ -368,13 +546,16 @@
     </footer>
     <!-- Footer End -->
 
-
-
-
+    <!-- Swiper Slider Cdn js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- GSAP Animation cdn -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Script file -->
     <script src="script.js"></script>
+
 </body>
+
 </html>
 
 
