@@ -111,13 +111,7 @@ html {
     background: var(--primary-dark);
 }
 
-
-
-
-
 /* SCROLL SPY - Active Link Styles */
-
-
 .navbar ul li a.active {
     background: var(--primary-color);
     color: var(--white-color);
@@ -137,12 +131,6 @@ html {
     transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-
-
-/* =========================
-   HAMBURGER ICON (FONT AWESOME)
-   ========================= */
-
 .hamburger {
     display: none;
     font-size: 26px;
@@ -150,17 +138,53 @@ html {
     color: #000;
 }
 
-/* Mobile navbar */
-@media (max-width: 900px) {
-    .hamburger {
-        display: block;
-    }
-}
+/* =========================
+   MOBILE NAVBAR
+========================= */
 
-/* Change icon when active */
-.hamburger.active i::before {
-    content: "\f00d";
-    /* Font Awesome X (close) */
+@media (max-width: 900px) {
+
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #F0F1F3;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    nav.active {
+        max-height: 500px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 15px 0;
+    }
+
+    .navbar ul li a {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    /* Hide desktop contact button */
+    .navbar .btn {
+        display: none;
+    }
+
+    /* Mobile contact button */
+    .mobile-btn {
+        display: block;
+        margin: 15px auto;
+        width: fit-content;
+    }
 }
 
 
@@ -876,7 +900,7 @@ html {
     width: auto;
     object-fit: contain;
     /* opacity: 0.6; */
-    /* filter: grayscale(100%); */
+     /* filter: grayscale(100%); */
     transition: 0.3s ease;
 }
 
@@ -888,10 +912,6 @@ html {
 /* Client Sec End */
 
 /* Testimonial Sect Start */
-/* ==========================================
-   TESTIMONIAL SECTION
-   ========================================== */
-
 .testimonial-section {
     padding: 100px 20px;
     background: #F0F1F3;
