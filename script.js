@@ -642,10 +642,40 @@ const testimonialSwiper = new Swiper('.testimonialSwiper', {
 });
 
 
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.querySelector(".navbar ul");
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const nav = document.querySelector('nav');
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+
+  // Toggle icon between bars and X
+  const icon = hamburger.querySelector('i');
+  if (nav.classList.contains('active')) {
+    icon.classList.remove('fa-bars');
+    icon.classList.add('fa-times');
+  } else {
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+  }
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('nav ul li a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+    const icon = hamburger.querySelector('i');
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+  });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+    nav.classList.remove('active');
+    const icon = hamburger.querySelector('i');
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+  }
 });
