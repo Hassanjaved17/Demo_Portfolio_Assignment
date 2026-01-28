@@ -4,7 +4,6 @@
 ====================================================
 */
 
-
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
@@ -412,9 +411,9 @@ gsap.from(".footer-bottom", {
   delay: 0.5
 });
 
-// // // ==========================================
-// // //      SCROLL TO TOP BUTTON ANIMATION
-// // // ==========================================
+// ==========================================
+//      SCROLL TO TOP BUTTON ANIMATION
+// ==========================================
 gsap.from(".scroll-top", {
   scale: 0,
   opacity: 0,
@@ -423,6 +422,7 @@ gsap.from(".scroll-top", {
   delay: 2
 });
 
+// OPTIMIZED: Smooth scroll with throttle
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -430,7 +430,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(targetID);
 
     if (target) {
-      const targetPosition = target.offsetTop - 80;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 80;
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
@@ -444,22 +444,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// OPTIMIZED: Throttled scroll event
 const scrollBtn = document.querySelector('.scroll-top');
+let scrollTimeout;
 
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) {
-    gsap.to(scrollBtn, { scale: 1, opacity: 1, duration: 0.3 });
-  } else {
-    gsap.to(scrollBtn, { scale: 0, opacity: 0, duration: 0.3 });
-  }
-});
+  if (scrollTimeout) return;
+  
+  scrollTimeout = setTimeout(() => {
+    if (window.pageYOffset > 400) {
+      gsap.to(scrollBtn, { scale: 1, opacity: 1, duration: 0.3 });
+    } else {
+      gsap.to(scrollBtn, { scale: 0, opacity: 0, duration: 0.3 });
+    }
+    scrollTimeout = null;
+  }, 100);
+}, { passive: true });
 
+// ==========================================
+//            HOVER ANIMATIONS 
+// ==========================================
 
-// // // ==========================================
-// // //            HOVER ANIMATIONS 
-// // // ==========================================
-
-// // // Card hover effects
+// Card hover effects
 document.querySelectorAll('.card, .blog-card, .service-card, .card-pro').forEach(card => {
   card.addEventListener('mouseenter', () => {
     gsap.to(card, {
@@ -478,7 +484,7 @@ document.querySelectorAll('.card, .blog-card, .service-card, .card-pro').forEach
   });
 });
 
-// // // Button hover pulse effect
+// Button hover pulse effect
 document.querySelectorAll('.btn, .btn1, .btn2, .btn3, .cta-btn').forEach(btn => {
   btn.addEventListener('mouseenter', () => {
     gsap.to(btn, {
@@ -520,24 +526,18 @@ new Swiper(".clientsSwiper", {
   },
 });
 
-
-
-
 const contactForm = document.getElementById('contactForm');
 
 contactForm.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  // Get form values
   const formData = new FormData(contactForm);
   const data = Object.fromEntries(formData);
 
   console.log('Form submitted:', data);
 
-  // Show success message
   alert('Thank you! Your message has been sent.');
 
-  // Reset form
   contactForm.reset();
 });
 
@@ -554,40 +554,56 @@ inputs.forEach(input => {
   });
 });
 
-
 // ======SCROLL SPY EFFECT - Navbar Active Link======
 
-// Get all sections and nav links
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.navbar nav ul li a');
 
-// Function to update active link
-function updateActiveLink() {
-  let current = '';
+// OPTIMIZED: Cache section positions
+let sectionPositions = [];
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-
-    // Check if section is in viewport (with offset for navbar height)
-    if (window.scrollY >= sectionTop - 150) {
-      current = section.getAttribute('id');
-    }
-  });
-
-  // Remove active class from all links
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-
-    // Add active class to current section's link
-    if (link.getAttribute('href').substring(1) === current) {
-      link.classList.add('active');
-    }
-  });
+function cacheSectionPositions() {
+  sectionPositions = Array.from(sections).map(section => ({
+    id: section.getAttribute('id'),
+    top: section.offsetTop,
+    height: section.clientHeight
+  }));
 }
 
-// Listen to scroll event
-window.addEventListener('scroll', updateActiveLink);
+// Update cache on load and resize
+cacheSectionPositions();
+window.addEventListener('resize', () => {
+  clearTimeout(window.resizeTimeout);
+  window.resizeTimeout = setTimeout(cacheSectionPositions, 200);
+});
+
+// OPTIMIZED: Throttled scroll spy
+let spyTimeout;
+function updateActiveLink() {
+  if (spyTimeout) return;
+  
+  spyTimeout = setTimeout(() => {
+    let current = '';
+    const scrollPos = window.pageYOffset;
+
+    sectionPositions.forEach(section => {
+      if (scrollPos >= section.top - 150) {
+        current = section.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').substring(1) === current) {
+        link.classList.add('active');
+      }
+    });
+    
+    spyTimeout = null;
+  }, 100);
+}
+
+window.addEventListener('scroll', updateActiveLink, { passive: true });
 
 // Smooth scroll on nav link click
 navLinks.forEach(link => {
@@ -608,18 +624,17 @@ navLinks.forEach(link => {
 
 // Smooth scroll for Contact button in navbar
 const contactBtn = document.querySelector('.navbar .btn');
-contactBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('contact').scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
+if (contactBtn) {
+  contactBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('contact').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
   });
-});
+}
 
-// Call once on page load to set initial active state
 updateActiveLink();
-
-
 
 // ==========================================
 // TESTIMONIAL SWIPER SLIDER
@@ -641,41 +656,41 @@ const testimonialSwiper = new Swiper('.testimonialSwiper', {
   effect: 'slide',
 });
 
-
 // Hamburger menu toggle
 const hamburger = document.getElementById('hamburger');
 const nav = document.querySelector('nav');
 
-hamburger.addEventListener('click', () => {
-  nav.classList.toggle('active');
+if (hamburger && nav) {
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('active');
 
-  // Toggle icon between bars and X
-  const icon = hamburger.querySelector('i');
-  if (nav.classList.contains('active')) {
-    icon.classList.remove('fa-bars');
-    icon.classList.add('fa-times');
-  } else {
-    icon.classList.remove('fa-times');
-    icon.classList.add('fa-bars');
-  }
-});
-
-// Close menu when clicking a link
-document.querySelectorAll('nav ul li a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('active');
     const icon = hamburger.querySelector('i');
-    icon.classList.remove('fa-times');
-    icon.classList.add('fa-bars');
+    if (nav.classList.contains('active')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times');
+    } else {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
   });
-});
 
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
-    nav.classList.remove('active');
-    const icon = hamburger.querySelector('i');
-    icon.classList.remove('fa-times');
-    icon.classList.add('fa-bars');
-  }
-});
+  // Close menu when clicking a link
+  document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      const icon = hamburger.querySelector('i');
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+      nav.classList.remove('active');
+      const icon = hamburger.querySelector('i');
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+  });
+}

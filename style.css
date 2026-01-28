@@ -2530,7 +2530,6 @@ html {
     text-align: center;
 }
 
-
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -2540,7 +2539,6 @@ html {
     margin: 0 auto;
     padding: 0 20px;
 }
-
 
 .logo {
     display: flex;
@@ -2561,7 +2559,6 @@ html {
     font-weight: 600;
     color: var(--white-color);
 }
-
 
 .footer-nav {
     list-style: none;
@@ -2591,7 +2588,6 @@ html {
     transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-
 .footer-nav li a:hover {
     color: var(--primary-color);
 }
@@ -2599,7 +2595,6 @@ html {
 .footer-nav li a:hover::after {
     width: 100%;
 }
-
 
 .footer-right p {
     color: #D0D0D1;
@@ -2644,8 +2639,6 @@ html {
 .footer-bottom .portfolio-link strong:hover::after {
     width: 100%;
 }
-
-
 
 .footer-bottom .heart {
     color: #E81224;
@@ -2692,25 +2685,88 @@ html {
     text-decoration: none;
     font-size: 25px;
     transition: background 0.3s ease;
-
 }
 
 .scroll-top:hover {
     background: var(--primary-dark);
 }
 
-
+/* Responsive Media Queries */
 @media (max-width: 768px) {
+    .footer {
+        padding: 60px 0 60px;
+    }
+
     .footer-container {
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+
+    .logo h4 {
+        font-size: 28px;
     }
 
     .footer-nav {
         justify-content: center;
+        gap: 20px;
+    }
+
+    .footer-right p {
+        font-size: 13px;
+    }
+
+    .footer-bottom {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 40px 0 40px;
+    }
+
+    .logo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo h4 {
+        font-size: 24px;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .footer-nav li a {
+        font-size: 15px;
+    }
+
+    .footer-right p {
+        font-size: 12px;
+    }
+
+    .footer-bottom {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .scroll-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 22px;
     }
 }
 
 /* Footer end */
-
 /* Designed & Developed By Hassan Javed */
