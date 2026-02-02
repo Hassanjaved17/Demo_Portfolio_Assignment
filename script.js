@@ -26,64 +26,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// OPTIMIZED: Throttled scroll event
-const scrollBtn = document.querySelector('.scroll-top');
-let scrollTimeout;
-
-window.addEventListener('scroll', () => {
-  if (scrollTimeout) return;
-
-  scrollTimeout = setTimeout(() => {
-    if (window.pageYOffset > 400) {
-      gsap.to(scrollBtn, { scale: 1, opacity: 1, duration: 0.3 });
-    } else {
-      gsap.to(scrollBtn, { scale: 0, opacity: 0, duration: 0.3 });
-    }
-    scrollTimeout = null;
-  }, 100);
-}, { passive: true });
-
-// ==========================================
-//            HOVER ANIMATIONS
-// ==========================================
-
-// Card hover effects
-document.querySelectorAll('.card, .blog-card, .service-card, .card-pro').forEach(card => {
-  card.addEventListener('mouseenter', () => {
-    gsap.to(card, {
-      y: -10,
-      duration: 0.3,
-      ease: "power2.out"
-    });
-  });
-
-  card.addEventListener('mouseleave', () => {
-    gsap.to(card, {
-      y: 0,
-      duration: 0.3,
-      ease: "power2.out"
-    });
-  });
-});
-
-// Button hover pulse effect
-document.querySelectorAll('.btn, .btn1, .btn2, .btn3, .cta-btn').forEach(btn => {
-  btn.addEventListener('mouseenter', () => {
-    gsap.to(btn, {
-      scale: 1.05,
-      duration: 0.3,
-      ease: "power2.out"
-    });
-  });
-
-  btn.addEventListener('mouseleave', () => {
-    gsap.to(btn, {
-      scale: 1,
-      duration: 0.3,
-      ease: "power2.out"
-    });
-  });
-});
 
 new Swiper(".clientsSwiper", {
   loop: true,
@@ -278,4 +220,60 @@ if (hamburger && nav) {
   });
 }
 
+//  counter animation on scroll into view on hero statistics section
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      const target = +counter.getAttribute('data-target');
+      const duration = 2000; // total duration in ms
+      const stepTime = Math.max(Math.floor(duration / target), 20); // minimum 20ms
+
+      let current = 0;
+
+      const updateCount = () => {
+        current++;
+        counter.innerText = current;
+        if (current < target) {
+          setTimeout(updateCount, stepTime);
+        }
+      };
+
+      updateCount();
+      observer.unobserve(counter);
+    }
+  }, { threshold: 0.5 });
+
+  observer.observe(counter);
+});
+
+// ==========================================
+//         SCROLL TO TOP BUTTON (OPTIMIZED)
+// ==========================================
+const scrollBtn = document.querySelector('.scroll-top');
+let scrollTicking = false;
+
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    window.requestAnimationFrame(() => {
+      if (window.pageYOffset > 400) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+      scrollTicking = false;
+    });
+
+    scrollTicking = true;
+  }
+}, { passive: true });
+
+scrollBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({ 
+    top: 0, 
+    behavior: 'smooth' 
+  });
+});
 // end of script

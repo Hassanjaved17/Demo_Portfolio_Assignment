@@ -27,6 +27,11 @@ html {
     scroll-behavior: smooth;
 }
 
+/* [data-aos] {
+  will-change: transform, opacity;
+} */
+
+
 
 /* Navbar start */
 .container {
@@ -2609,6 +2614,7 @@ nav {
 }
 
 /* Scroll To Top Button */
+/* Scroll To Top Button */
 .scroll-top {
     position: fixed;
     bottom: 25px;
@@ -2625,7 +2631,6 @@ nav {
     font-size: 25px;
     transition: background 0.3s ease;
 }
-
 .scroll-top:hover {
     background: var(--primary-dark);
 }
