@@ -35,6 +35,11 @@ html {
     margin: 0 auto;
 }
 
+nav {
+    will-change: transform;
+}
+
+
 .navbar {
     background: #F0F1F3;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -277,7 +282,7 @@ html {
     }
 }
 
-/* Hero Section start */
+/* Navbar end */
 /* Hero Section start */
 .hero {
     background: linear-gradient(to right, var(--white-color), #F8DBFC);
