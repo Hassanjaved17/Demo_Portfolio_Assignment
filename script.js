@@ -187,8 +187,7 @@ const nav = document.querySelector('nav');
 if (hamburger && nav) {
   hamburger.addEventListener('click', () => {
     nav.classList.toggle('active');
-    ScrollTrigger.refresh();
-
+  
     const icon = hamburger.querySelector('i');
     if (nav.classList.contains('active')) {
       icon.classList.remove('fa-bars');
@@ -249,31 +248,33 @@ counters.forEach(counter => {
 });
 
 // ==========================================
-//         SCROLL TO TOP BUTTON (OPTIMIZED)
+//         SCROLL TO TOP BUTTON
 // ==========================================
 const scrollBtn = document.querySelector('.scroll-top');
-let scrollTicking = false;
 
-window.addEventListener('scroll', () => {
-  if (!scrollTicking) {
-    window.requestAnimationFrame(() => {
-      if (window.pageYOffset > 400) {
-        scrollBtn.classList.add('visible');
-      } else {
-        scrollBtn.classList.remove('visible');
-      }
-      scrollTicking = false;
+if (scrollBtn) {
+  let scrollTicking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        if (window.pageYOffset > 300) {
+          scrollBtn.classList.add('visible');
+        } else {
+          scrollBtn.classList.remove('visible');
+        }
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  scrollBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ 
+      top: 0, 
+      behavior: 'smooth' 
     });
-
-    scrollTicking = true;
-  }
-}, { passive: true });
-
-scrollBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  window.scrollTo({ 
-    top: 0, 
-    behavior: 'smooth' 
   });
-});
+}
 // end of script

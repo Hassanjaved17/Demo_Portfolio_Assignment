@@ -2613,26 +2613,41 @@ nav {
     }
 }
 
-/* Scroll To Top Button */
+
 /* Scroll To Top Button */
 .scroll-top {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
+    position: fixed !important;
+    bottom: 25px !important;
+    right: 25px !important;
     width: 50px;
     height: 50px;
     background: var(--primary-light);
     border-radius: 50%;
     color: var(--white-color);
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     font-size: 25px;
-    transition: background 0.3s ease;
+    z-index: 99999 !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+    pointer-events: none;
+    transition: all 0.3s ease;
 }
+
+/* Show when visible */
+.scroll-top.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: scale(1) !important;
+    pointer-events: auto !important;
+}
+
 .scroll-top:hover {
     background: var(--primary-dark);
+    transform: scale(1.1) !important;
 }
 
 /* Responsive Media Queries */
