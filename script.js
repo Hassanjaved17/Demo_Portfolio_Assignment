@@ -146,19 +146,6 @@ navLinks.forEach(link => {
   });
 });
 
-// Smooth scroll for Contact button in navbar
-const contactBtn = document.querySelector('.navbar .btn');
-if (contactBtn) {
-  contactBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById('contact').scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-  });
-}
-
-updateActiveLink();
 
 // ==========================================
 // TESTIMONIAL SWIPER SLIDER
