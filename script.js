@@ -85,6 +85,7 @@ const navLinks = document.querySelectorAll('.navbar nav ul li a');
 
 // OPTIMIZED: Cache section positions
 let sectionPositions = [];
+let resizeTimeout;
 
 function cacheSectionPositions() {
   sectionPositions = Array.from(sections).map(section => ({
@@ -95,10 +96,13 @@ function cacheSectionPositions() {
 }
 
 // Update cache on load and resize
-cacheSectionPositions();
+window.addEventListener('load', () => {
+  setTimeout(cacheSectionPositions, 100);
+});
+
 window.addEventListener('resize', () => {
-  clearTimeout(window.resizeTimeout);
-  window.resizeTimeout = setTimeout(cacheSectionPositions, 200);
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(cacheSectionPositions, 200);
 });
 
 // OPTIMIZED: Throttled scroll spy
@@ -129,24 +133,6 @@ function updateActiveLink() {
 
 window.addEventListener('scroll', updateActiveLink, { passive: true });
 
-// Smooth scroll on nav link click
-navLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    const targetId = link.getAttribute('href').substring(1);
-    const targetSection = document.getElementById(targetId);
-
-    if (targetSection) {
-      targetSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-});
-
-
 // ==========================================
 // TESTIMONIAL SWIPER SLIDER
 // ==========================================
@@ -174,7 +160,7 @@ const nav = document.querySelector('nav');
 if (hamburger && nav) {
   hamburger.addEventListener('click', () => {
     nav.classList.toggle('active');
-  
+
     const icon = hamburger.querySelector('i');
     if (nav.classList.contains('active')) {
       icon.classList.remove('fa-bars');
@@ -258,10 +244,84 @@ if (scrollBtn) {
 
   scrollBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    window.scrollTo({ 
-      top: 0, 
-      behavior: 'smooth' 
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
   });
 }
+
+window.addEventListener('load', () => {
+  if (window.pageYOffset > 300) {
+    scrollBtn.classList.add('visible');
+  }
+});
+
+
+
+
+
+
+
+
+// ==========================================
+//    MOBILE INITIALIZATION FIX
+// ==========================================
+
+// Force initial states on page load - MOBILE FIX
+function initializeMobileStates() {
+  // Cache section positions
+  cacheSectionPositions();
+
+  // Update active link
+  updateActiveLink();
+
+  // Check scroll button visibility
+  if (scrollBtn) {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollPosition > 300) {
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+    }
+  }
+
+  // Force navbar state update
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    navbar.style.transform = 'translateY(0)';
+  }
+}
+
+// Initialize on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeMobileStates);
+} else {
+  initializeMobileStates();
+}
+
+// Re-initialize on page show (for back/forward navigation)
+window.addEventListener('pageshow', function (event) {
+  if (event.persisted) {
+    initializeMobileStates();
+  }
+});
+
+// Mobile touch scroll fix
+let touchStartY = 0;
+document.addEventListener('touchstart', function (e) {
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+document.addEventListener('touchmove', function () {
+  // Force scroll event on mobile
+  if (scrollBtn) {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollPosition > 300) {
+      scrollBtn.classList.add('visible');
+    } else {
+      scrollBtn.classList.remove('visible');
+    }
+  }
+}, { passive: true });
 // end of script
