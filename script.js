@@ -26,7 +26,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-
+// Swiper Slider
 new Swiper(".clientsSwiper", {
   loop: true,
   speed: 3000,
@@ -79,59 +79,34 @@ inputs.forEach(input => {
 });
 
 // ======SCROLL SPY EFFECT - Navbar Active Link======
-
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.navbar nav ul li a');
 
-// OPTIMIZED: Cache section positions
-let sectionPositions = [];
-let resizeTimeout;
-
-function cacheSectionPositions() {
-  sectionPositions = Array.from(sections).map(section => ({
-    id: section.getAttribute('id'),
-    top: section.offsetTop,
-    height: section.clientHeight
-  }));
-}
-
-// Update cache on load and resize
-window.addEventListener('load', () => {
-  setTimeout(cacheSectionPositions, 100);
-});
-
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(cacheSectionPositions, 200);
-});
-
-// OPTIMIZED: Throttled scroll spy
-let spyTimeout;
 function updateActiveLink() {
-  if (spyTimeout) return;
+  const scrollPos = window.pageYOffset + 100; // 100px offset for navbar
 
-  spyTimeout = setTimeout(() => {
-    let current = '';
-    const scrollPos = window.pageYOffset;
+  let current = '';
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top + window.scrollY;
+    const bottom = top + section.offsetHeight;
 
-    sectionPositions.forEach(section => {
-      if (scrollPos >= section.top - 150) {
-        current = section.id;
-      }
-    });
+    if (scrollPos >= top && scrollPos < bottom) {
+      current = section.getAttribute('id');
+    }
+  });
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href').substring(1) === current) {
-        link.classList.add('active');
-      }
-    });
-
-    spyTimeout = null;
-  }, 100);
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href').substring(1) === current) {
+      link.classList.add('active');
+    }
+  });
 }
 
 window.addEventListener('scroll', updateActiveLink, { passive: true });
+window.addEventListener('load', updateActiveLink);
+window.addEventListener('resize', updateActiveLink);
+
 
 // ==========================================
 // TESTIMONIAL SWIPER SLIDER
@@ -259,11 +234,6 @@ window.addEventListener('load', () => {
 
 
 
-
-
-
-
-
 // ==========================================
 //    MOBILE INITIALIZATION FIX
 // ==========================================
@@ -271,7 +241,7 @@ window.addEventListener('load', () => {
 // Force initial states on page load - MOBILE FIX
 function initializeMobileStates() {
   // Cache section positions
-  cacheSectionPositions();
+ 
 
   // Update active link
   updateActiveLink();
